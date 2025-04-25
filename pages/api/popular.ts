@@ -9,7 +9,7 @@ interface Response {
   data: Media[] | Error;
 }
 
-const apiKey = process.env.TMDB_KEY;
+const apiKey = '5bac98b706c4d2431fa57d69d376c6bf';
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse<Response>) {
   const { type } = request.query;
