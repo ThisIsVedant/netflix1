@@ -32,7 +32,7 @@ export default function Cards({ defaultCard = true, item }: CardsProps): React.R
     <div className={style} onMouseEnter={() => setIsHovered(true)} 
     onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={style.mediaWrapper}>
+      <div className={styles.cardPoster}>
         {!isHovered ? (
           <img src={image} alt="img" className={styles.cardPoster} />
         ) : (
