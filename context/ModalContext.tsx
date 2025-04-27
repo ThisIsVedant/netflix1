@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { Media } from '../../netflix/types';
+import { Media } from '@/types';
 
 interface Modal {
   modalData: Media;
