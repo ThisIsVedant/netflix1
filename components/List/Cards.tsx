@@ -42,6 +42,7 @@ export default function Cards({ defaultCard = true, item }: CardsProps): React.R
             loop 
             muted
             playsInline 
+            preload="metadata"
             className={styles.cardPoster} 
           />
         )}
