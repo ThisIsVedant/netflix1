@@ -88,6 +88,10 @@
   height: 84vh;
   background-color: $secondary;
 
+  .dark &{
+    background-color: $secondary
+  }
+
   @include for-mobile-only {
     height: 64vh;
   }

@@ -9,6 +9,8 @@ import {
   IoLogoTwitter as Twitter,
   IoLogoGithub as Github
 } from 'react-icons/io5';
+
+import { BsRobot as AI } from "react-icons/bs";
 import { AiOutlineLike as Like, AiOutlineDislike as Dislike } from 'react-icons/ai';
 
-export { Info, CaretDown, Play, Search, Notifications, Add, Down, Like, Dislike, Linkedin, Twitter, Github };
+export { Info, CaretDown, Play, Search, Notifications, Add, Down, Like, Dislike, Linkedin, Twitter, Github, AI};

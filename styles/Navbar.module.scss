@@ -2,7 +2,7 @@
 @import './mixins.scss';
 
 .navBar {
-  background-image: linear-gradient(to bottom, $navBar-transparent 10%, $navBar-gradient);
+  background-image: linear-gradient(to bottom, $white 10%, $navBar-gradient);
   transition: all 0.2s ease-out;
   display: flex;
   flex-direction: row;
@@ -14,13 +14,18 @@
   top: 0;
   overflow: hidden;
 
+  .dark &{
+    background-image: linear-gradient(to bottom, $secondary 10%, $navBar-gradient);
+  }
+
+
   @include for-mobile-only {
     padding: 0.6rem 0rem;
   }
 
   &__filled {
     background-image: none;
-    background-color: $secondary;
+    background-color: $white;
     transition: all 0.2s ease-out;
     display: flex;
     flex-direction: row;
@@ -30,6 +35,10 @@
     position: sticky;
     padding: 0.8rem;
     top: 0;
+
+    .dark & {
+      background-color: $secondary;
+    }
 
     @include for-mobile-only {
       padding: 0.6rem 0rem;
@@ -74,9 +83,9 @@
     }
 
     .menu {
-      background-color: $secondary;
+      background-color: $white;
       opacity: 0.7 !important;
-      color: $white;
+      color: $secondary;
       position: absolute;
       top: 3rem;
       padding: 0.6rem 0.9rem;
@@ -84,9 +93,15 @@
       border: $button-border solid 1.5px;
       cursor: pointer;
 
+      .dark &{
+        background-color: $secondary;
+      }
+
       &:hover {
         border-color: $white;
       }
+
+      
     }
   }
 
@@ -106,6 +121,7 @@
       margin: 0 0.2rem;
       cursor: pointer;
       transition: linear 200ms ease-in;
+      color: $white;
 
       @include for-mobile-only {
         padding: 0.1rem;
@@ -146,6 +162,11 @@
       align-items: center;
       font-size: 0.9rem;
 
+      .dark & {
+        background-color: $white;
+        border: $black-hover solid 1.2px
+      }
+
       &__input {
         padding: 0.4rem;
         outline: none;
@@ -153,6 +174,11 @@
         background-color: transparent;
         color: $white;
         border: none;
+        
+        .dark & {
+          color: $secondary;
+        }
+
 
         @include for-mobile-only {
           width: 90%;
@@ -181,9 +207,9 @@
       }
 
       .signout {
-        background-color: $secondary;
+        background-color: $white;
         opacity: 0.7;
-        color: $white;
+        color: $secondary;
         position: absolute;
         margin-top: 6rem;
         padding: 0.6rem 0.9rem;
@@ -191,6 +217,10 @@
         border: $button-border solid 1.5px;
         cursor: pointer;
         z-index: 40;
+
+        .dark & {
+          background-color: $secondary;
+        }
 
         &:hover {
           border-color: $white;

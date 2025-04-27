@@ -88,3 +88,33 @@
     border-color: $white;
   }
 }
+
+.aiButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; // space between icon and text
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 9999px; // fully rounded (pill shape)
+  background: linear-gradient(135deg, #f43f5e, #8b5cf6); // red to indigo gradient
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px linear-gradient(135deg, #f43f5e, #8b5cf6);
+  transition: all 0.3s ease;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px linear-gradient(135deg, #f43f5e, #8b5cf6);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

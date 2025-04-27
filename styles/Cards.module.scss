@@ -76,12 +76,16 @@
 
   .cardInfo {
     min-height: fit-content;
-    background-color: $secondary;
+    background-color: $white;
     border-bottom-left-radius: 0.28rem;
     border-bottom-right-radius: 0.28rem;
     display: none;
     padding: 0.4rem;
     font-size: inherit;
+
+    .dark &{
+      background-color: $secondary;
+    }
   }
 }
 
@@ -103,13 +107,16 @@
   flex-shrink: 0;
   width: 14rem;
   height: 24rem;
-  background-color: $card-color;
+  background-color: $white;
   border-radius: 0.28rem;
   margin-right: 0.3rem;
   transition: all 320ms ease-in-out;
   z-index: 1;
   cursor: pointer;
 
+  .dark &{
+    background-color: $secondary;
+  }
   &:hover {
     transform: scale(1.15);
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6), 0 4px 4px rgba(0, 0, 0, 0.5);
@@ -191,11 +198,15 @@
     font-size: 13rem;
     font-weight: 900;
     -webkit-text-stroke: 5px #7c7c7c;
-    -webkit-text-fill-color: $black;
+    -webkit-text-fill-color: $white;
     margin-right: -2rem;
     margin-bottom: 1.4rem;
     padding: 0 !important;
     cursor: pointer;
+
+    .dark &{
+      -webkit-text-fill-color: $black;
+    }
   }
 }
 
@@ -246,10 +257,14 @@
 
 .info {
   min-height: fit-content;
-  background-color: $secondary;
+  background-color: $white;
   border-bottom-left-radius: 0.28rem;
   border-bottom-right-radius: 0.28rem;
   display: none;
   padding: 0.4rem;
   font-size: inherit;
+
+  .dark &{
+    background-color: $white;
+  }
 }

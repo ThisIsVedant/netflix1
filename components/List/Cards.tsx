@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 import { Genre, Media } from '../../types';
@@ -21,6 +21,7 @@ export default function Cards({ defaultCard = true, item }: CardsProps): React.R
   const image = defaultCard ? banner : poster;
 
   const { setModalData, setIsModal } = useContext(ModalContext);
+  const [isHovered, setIsHovered] = useState(false);  
 
   const onClick = (data: Media) => {
     setModalData(data);
@@ -28,8 +29,23 @@ export default function Cards({ defaultCard = true, item }: CardsProps): React.R
   };
 
   return (
-    <div className={style}>
-      <img src={image} alt='img' className={styles.cardPoster} />
+    <div className={style} onMouseEnter={() => setIsHovered(true)} 
+    onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className={style.mediaWrapper}>
+        {!isHovered ? (
+          <img src={image} alt="img" className={styles.cardPoster} />
+        ) : (
+          <video 
+            src={'./assets/trailer.mp4'} 
+            autoPlay  
+            loop 
+            muted
+            playsInline 
+            className={styles.cardPoster} 
+          />
+        )}
+      </div>
       <div className={infoStyle}>
         <div className={styles.actionRow}>
           <div className={styles.actionRow}>
@@ -48,7 +64,6 @@ export default function Cards({ defaultCard = true, item }: CardsProps): React.R
           <strong>{title}</strong>
           <div className={styles.row}>
             <span className={styles.greenText}>{`${rating * 10}% match`}</span>
-            {/* <span className={styles.regularText}>length </span> */}
           </div>
           {renderGenre(genre)}
         </div>
