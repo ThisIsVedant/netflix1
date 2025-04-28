@@ -5,12 +5,11 @@ import { AI  ,Notifications, } from '../../utils/icons';
 import useDimensions from '../../hooks/useDimensions';
 import styles from '../../styles/Navbar.module.scss';
 
-import { IoSunnySharp } from "react-icons/io5";
-import { IoMoon } from "react-icons/io5";
+// import { IoSunnySharp } from "react-icons/io5";
+// import { IoMoon } from "react-icons/io5";
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect   } from 'react';
 import { ModalContext } from '../../context/ModalContext';
-import { Media } from '@/types';
 import axios from 'axios';
 import buttonStyles from '../../styles/Button.module.scss';
 
@@ -26,42 +25,48 @@ interface NavbarProps {
 export default function Navbar({ isScrolled}: NavbarProps): React.ReactElement {
   const navBackground = isScrolled ? styles.navBar__filled : styles.navBar;
   const { isMobile } = useDimensions();
-  const [isDark, setIsDark] = useState<boolean>(false);
+  // const [isDark, setIsDark] = useState<boolean>(false);
   const { setModalData, setIsModal } = useContext(ModalContext);
-  const [media, setMedia] = useState<Media>();
-  const random = Math.floor(Math.random() * 20);
 
-  const onClick = (data: Media) => {
-    setModalData(data);
-    setIsModal(true);
-  };
-  const getMedia = async () => {
+  const getRandomMedia = async () => {
     try {
-      const result = await axios.get('/api/popular?type=movie');
-      setMedia(result.data.data[random]);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {}
+      const res = await axios.get('/api/popular?type=movie');
+      const movies = res.data.data;
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      return movies[randomIndex];
+    } catch (error) {
+      console.error('Failed to fetch random media', error);
+      return null;
+    }
+  };
+
+  const handleAiPicksClick = async () => {
+    const randomMedia = await getRandomMedia();
+    if (randomMedia) {
+      setModalData(randomMedia);
+      setIsModal(true);
+    }
   };
 
   useEffect(() => {
-    getMedia();
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark');
-      setIsDark(true);
-    }
+    
+    // const savedTheme = localStorage.getItem('theme');
+    // if (savedTheme === 'dark') {
+    //   document.body.classList.add('dark');
+    //   setIsDark(true);
+    // }
   }, []);
 
-  const toggleTheme = () => {
-    if (isDark) {
-      document.body.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.body.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
-    setIsDark(!isDark);
-  };
+  // const toggleTheme = () => {
+  //   if (isDark) {
+  //     document.body.classList.remove('dark');
+  //     localStorage.setItem('theme', 'light');
+  //   } else {
+  //     document.body.classList.add('dark');
+  //     localStorage.setItem('theme', 'dark');
+  //   }
+  //   setIsDark(!isDark);
+  // };
 
   return (
     <motion.div
@@ -75,15 +80,15 @@ export default function Navbar({ isScrolled}: NavbarProps): React.ReactElement {
       }}>
       <div className={styles.navBar__left}>
         <Menu />
-        {media && <button className={buttonStyles.aiButton} onClick={() => onClick(media)}><AI/>AI Assistant</button>}
+        {<button className={buttonStyles.aiButton} onClick={handleAiPicksClick}><AI/>AI Picks</button>}
       </div>
 
       <div className={styles.navBar__right}>
         <SearchBar />
         {!isMobile && <Notifications className={styles.icon} />}
-        <div onClick={toggleTheme} className={styles.icon} title="Toggle Theme">
+        {/* <div onClick={toggleTheme} className={styles.icon} title="Toggle Theme">
           {isDark ? <IoSunnySharp /> : <IoMoon />}
-        </div>
+        </div> */}
         <Profile />
       </div>
     </motion.div>

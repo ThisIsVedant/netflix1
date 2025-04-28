@@ -1,40 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Pixel Plus Hackathon 2025 Submission
 
-## Getting Started
+## Project: Netflix Website Replication + New Features
 
-First, run the development server:
+## 🔹 Overview
+
+This project is a **pixel-perfect replication** of the **Netflix** web interface, built for the Pixel Plus Hackathon 2025.
+
+In addition to replicating the core design and layout with precision (fonts, spacing, colors, and responsiveness), I have **introduced several new features** to enhance user experience and functionality.
+
+---
+
+## 🌟 New Features and Improvements
+
+### 1. 🧵 AI Picks (AI Movie Recommendations)
+
+- Integrated an "AI Picks" section.
+- Suggests random high-rated movies to the user on button click.
+- Fetches a fresh recommendation every time the user interacts.
+
+### 2. 🎥 Hovering Trailers on Movie Cards
+
+- On mouse hover over a movie card, the corresponding trailer auto-plays (muted, looped).
+- Mimics the Netflix "quick preview" behavior.
+- Smooth transition from static poster image to video.
+
+### 3. 🛂 Horizontal Slider with Trackpad Support
+
+- Added smooth, touch-friendly horizontal scrolling for movie categories.
+- Users can drag/slide horizontally using the trackpad or mouse.
+- Enhanced responsiveness and feel across devices.
+
+### 4. 🌟 Light Theme Mode
+
+- Implemented a Light Theme mode for the interface.
+- Theme preference is stored in localStorage to persist across sessions.
+
+---
+
+## 🔹 Technologies Used
+
+- **Next.js 14**
+- **TypeScript**
+- **SCSS (CSS Modules)**
+- **Framer Motion** (for animations)
+- **Axios** (for fetching movie data)
+- **React Context API** (for modal and theme management)
+
+---
+
+## 📎 Hosting Link
+
+[Live Website Here](https://netflix-azure-nu.vercel.app/)
+
+## 📎 GitHub Repository
+
+[GitHub Repo Here](https://github.com/ThisIsVedant/netflix1)
+
+---
+
+## 💡 How to Run Locally
 
 ```bash
-npm run dev
-# or
+git clone https://github.com/ThisIsVedant/netflix1.git
+cd netflix1
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Additional Notes
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- All UI components closely match the original Netflix site.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Built with performance and accessibility in mind.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- Fully responsive on mobile, tablet, and desktop devices.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎉Thank you!
 
-## Learn More
+Building this clone and enhancing it with new features was a great challenge. I hope you enjoy the experience!
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+For any questions or clarifications, feel free to reach out!
